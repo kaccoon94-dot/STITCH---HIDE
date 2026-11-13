@@ -1,0 +1,70 @@
+.chips__legend {
+  display: block;
+  margin-bottom: 14px;
+}
+
+.chips__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.chip {
+  height: var(--control-sm);
+  min-width: 96px;
+  padding: 0 var(--space-24);
+  background: var(--field);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1;
+  transition:
+    background-color 0.15s ease,
+    color 0.15s ease,
+    border-color 0.15s ease;
+}
+
+.chip--wide {
+  min-width: 120px;
+}
+
+.chip:hover {
+  border-color: var(--ink);
+}
+
+.chip[aria-pressed='true'] {
+  background: var(--fill);
+  color: var(--on-fill);
+  border-color: var(--fill);
+  font-weight: 700;
+}
+
+/* 결제 수단 선택 타일 */
+.chips__list--tile {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-12);
+}
+
+.chip--tile {
+  height: 72px;
+  font-size: 17px;
+}
+
+@media (max-width: 768px) {
+  .chips__list--chip .chip {
+    flex: 1 1 auto;
+    min-width: 84px;
+    padding: 0 var(--space-16);
+  }
+
+  .chips__list--tile {
+    grid-template-columns: 1fr;
+  }
+
+  .chip--tile {
+    height: var(--control-sm);
+  }
+}

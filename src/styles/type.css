@@ -1,0 +1,140 @@
+/* 글자 스타일 (06-site-design.md 3번) */
+
+.t-display-xl {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 44px;
+  line-height: 1.45;
+  letter-spacing: -0.01em;
+}
+
+.t-display-wide {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.2;
+  letter-spacing: 0.42em;
+}
+
+.t-display-lg {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 40px;
+  line-height: 1.4;
+}
+
+.t-heading {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+.t-heading-sm {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 1.4;
+}
+
+.t-cell-title {
+  font-family: var(--font-serif);
+  font-weight: 500;
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+.t-body-lg {
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.t-body {
+  font-size: 17px;
+  line-height: 1.75;
+}
+
+.t-body-sm {
+  font-size: 16px;
+  line-height: 1.8;
+}
+
+.t-label {
+  font-size: 16px;
+  line-height: 1.5;
+  font-weight: 700;
+}
+
+.t-menu {
+  font-size: 15px;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+.t-eyebrow {
+  font-size: 13px;
+  line-height: 1.5;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+}
+
+.t-caption {
+  font-size: 13px;
+  line-height: 1.6;
+}
+
+.t-slot {
+  font-size: 12px;
+  line-height: 1.5;
+}
+
+.ink-soft {
+  color: var(--ink-soft);
+}
+
+.ink-muted {
+  color: var(--ink-muted);
+}
+
+/* 제목과 본문 사이 짧은 대시 */
+.dash {
+  display: block;
+  width: 24px;
+  height: 0;
+  border-top: 1.5px solid var(--dash);
+}
+
+.dash--lg {
+  width: 28px;
+}
+
+@media (max-width: 768px) {
+  .t-display-xl {
+    font-size: 30px;
+  }
+
+  .t-display-wide {
+    font-size: 24px;
+    letter-spacing: 0.24em;
+  }
+
+  .t-display-lg {
+    font-size: 30px;
+  }
+
+  .t-heading {
+    font-size: 26px;
+  }
+
+  .t-heading-sm {
+    font-size: 24px;
+  }
+
+  .t-cell-title {
+    font-size: 21px;
+  }
+
+  .t-body-lg {
+    font-size: 17px;
+  }
+}

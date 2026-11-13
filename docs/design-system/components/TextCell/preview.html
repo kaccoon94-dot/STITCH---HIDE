@@ -1,0 +1,28 @@
+<!-- @dsCard group="Content" height=420 width=1000 subtitle="지그재그 격자 한 줄" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>TextCell</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: var(--font-sans); background: var(--surface); }
+  .grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); border: 1px solid var(--line); }
+  .img { height: 400px; background: var(--surface-sunken); display: flex; align-items: flex-end; padding: 20px; box-sizing: border-box; font-size: 12px; color: var(--ink-faint); border-radius: var(--radius-none); }
+  .cell { height: 400px; background: var(--surface-raised); color: var(--ink); display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 0 var(--space-56); box-sizing: border-box; }
+  .t { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: 24px; line-height: 1.6; }
+  .dash { width: 24px; border-top: 1.5px solid var(--dash); margin: 28px 0; }
+  .b { margin: 0; font-size: 16px; line-height: 1.8; color: var(--ink-soft); }
+</style>
+</head>
+<body data-theme="dark">
+  <div class="grid">
+    <div class="img" role="img" aria-label="이미지 자리">이미지 자리 560×400 · 손·도구·가죽 바느질 장면</div>
+    <div class="cell">
+      <p class="t">가죽의 질을 직접 확인하고,<br>부위마다 알맞은 쓰임을 정합니다</p>
+      <span class="dash" aria-hidden="true"></span>
+      <p class="b">재단부터 봉제, 끈 조립, 형태 잡기까지<br>한 단계씩 손으로 확인하며 완성합니다.</p>
+    </div>
+  </div>
+</body>
+</html>

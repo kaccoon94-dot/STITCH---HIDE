@@ -1,0 +1,38 @@
+<!-- @dsCard group="Navigation" height=104 width=1000 subtitle="떠 있는 작은 메뉴 막대" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>GNB</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@600&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: var(--font-sans); }
+  header { background: var(--surface); padding: 20px var(--space-24); display: flex; justify-content: center; }
+  nav { width: 100%; max-width: var(--nav-width); height: var(--nav-height); box-sizing: border-box; display: flex; align-items: stretch; background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; }
+  a { text-decoration: none; }
+  a:focus-visible { outline: 2px solid var(--focus); outline-offset: -4px; }
+  .logo { width: 200px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; border-right: 1px solid var(--line); }
+  .mark { width: var(--logo-w); height: 36px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; }
+  .word { font-family: var(--font-serif); font-weight: 600; font-size: 16px; letter-spacing: 0.16em; color: var(--ink); line-height: 1; }
+  .stitch { width: 132px; border-top: 1.5px dashed var(--ink-muted); }
+  .menu { flex: 1; display: flex; align-items: center; justify-content: center; gap: 36px; }
+  .menu a { display: flex; align-items: center; gap: 8px; font-size: 15px; font-weight: 500; color: var(--ink); }
+  .cta { width: 180px; flex-shrink: 0; display: flex; align-items: center; justify-content: center; gap: 8px; background: var(--ember); color: var(--on-ember); font-size: 15px; font-weight: 700; }
+</style>
+</head>
+<body>
+<header data-theme="dark">
+  <nav aria-label="주 메뉴">
+    <a class="logo" href="#" aria-label="STITCH &amp; HIDE 메인으로"><span class="mark"><span class="word">STITCH &amp; HIDE</span><span class="stitch"></span></span></a>
+    <div class="menu">
+      <a href="#">라인업</a>
+      <a href="#">브랜드 스토리</a>
+      <a href="#"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 8h14l-1.2 11.2a1 1 0 0 1-1 .8H7.2a1 1 0 0 1-1-.8L5 8z"></path><path d="M9 8V6.5a3 3 0 0 1 6 0V8"></path></svg>장바구니</a>
+      <a href="#"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8.5" r="3.5"></circle><path d="M5 20c.8-3.6 3.6-5.5 7-5.5s6.2 1.9 7 5.5"></path></svg>로그인</a>
+    </div>
+    <a class="cta" href="#">맞춤 추천
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg></a>
+  </nav>
+</header>
+</body>
+</html>

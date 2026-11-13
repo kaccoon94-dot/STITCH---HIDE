@@ -1,0 +1,58 @@
+.flt {
+  position: fixed;
+  right: 32px;
+  bottom: 32px;
+  z-index: 40;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.flt__btn {
+  width: var(--float-size);
+  height: var(--float-size);
+  border-radius: var(--radius-full);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 2px;
+  padding: 0;
+  font-family: var(--font-sans);
+  font-size: 13px;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+  box-shadow: var(--shadow-float);
+  transition: transform 0.2s ease;
+}
+
+.flt__btn:hover {
+  transform: translateY(-2px);
+}
+
+.flt__btn--star {
+  background: var(--ember);
+  color: var(--on-ember);
+  border: 0;
+}
+
+.flt__btn--top {
+  background: var(--surface-sunken);
+  color: var(--ink);
+  border: 1px solid var(--line-strong);
+  font-size: 12px;
+  letter-spacing: 0.06em;
+}
+
+@media (max-width: 768px) {
+  .flt {
+    right: 16px;
+    bottom: 16px;
+  }
+
+  .flt__btn {
+    width: 56px;
+    height: 56px;
+  }
+}

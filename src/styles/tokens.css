@@ -1,0 +1,85 @@
+/* 디자인 시스템 STITCH & HIDE 토큰 (docs/design-system/tokens.json) */
+
+:root {
+  --font-serif: 'Noto Serif KR', 'Nanum Myeongjo', Georgia, serif;
+  --font-sans: 'Noto Sans KR', 'Apple SD Gothic Neo', 'Malgun Gothic', system-ui, sans-serif;
+
+  --space-8: 8px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-48: 48px;
+  --space-56: 56px;
+  --space-72: 72px;
+  --space-96: 96px;
+  --space-128: 128px;
+  --space-160: 160px;
+
+  --radius-none: 0;
+  --radius-sm: 4px;
+  --radius-md: 6px;
+  --radius-full: 9999px;
+
+  --shadow-ember: 0 0 0 6px rgba(232, 100, 30, 0.16), 0 10px 40px rgba(232, 100, 30, 0.28);
+  --shadow-ember-hover: 0 0 0 10px rgba(232, 100, 30, 0.2), 0 12px 48px rgba(232, 100, 30, 0.36);
+  --shadow-float: 0 8px 24px rgba(0, 0, 0, 0.45);
+
+  --content-width: 1200px;
+  --nav-width: 1040px; /* 디자인 시스템 920 → 상단 메뉴 비율 조정 (사용자 요청 2026-11-13) */
+  --nav-height: 72px; /* 디자인 시스템 64 → 로고 240×54에 맞춤 (사용자 요청 2026-11-13) */
+  --control-lg: 60px;
+  --control-md: 56px;
+  --control-sm: 52px;
+  --float-size: 64px;
+  --logo-w: 160px;
+  --logo-h: 36px;
+
+  /* 테마와 상관없이 같은 값 */
+  --surface-deep: #060606;
+  --ember: #e8641e;
+  --on-ember: #0a0908;
+  --ember-halo: rgba(232, 100, 30, 0.16);
+
+  /* GNB 높이(띠 위아래 20 + 막대 72) — 섹션 이동 시 가림 보정 */
+  --header-h: 112px;
+}
+
+:root,
+[data-theme='dark'] {
+  --surface: #0a0908;
+  --surface-raised: #15120f;
+  --surface-sunken: #1c1916;
+  --field: #1c1916;
+  --ink: #f2ece3;
+  --ink-soft: #cfc6ba;
+  --ink-muted: #a39a8f;
+  --ink-faint: #8c847a;
+  --line: #2e2925;
+  --line-strong: #6b635a;
+  --dash: #6b635a;
+  --fill: #f2ece3;
+  --on-fill: #0a0908;
+  --focus: #f2ece3;
+}
+
+[data-theme='light'] {
+  --surface: #f4efe7;
+  --surface-raised: #fbf8f3;
+  --surface-sunken: #ede6db;
+  --field: #ffffff;
+  --ink: #1a1714;
+  --ink-soft: #3a342e;
+  --ink-muted: #5e564e;
+  --ink-faint: #5e564e;
+  --line: #ddd5ca;
+  --line-strong: #8c847a;
+  --dash: #c9bfb2;
+  --fill: #1a1714;
+  --on-fill: #f4efe7;
+  --focus: #1a1714;
+}
+
+[data-theme] {
+  color: var(--ink);
+}

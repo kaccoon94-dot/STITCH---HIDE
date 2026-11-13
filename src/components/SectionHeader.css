@@ -1,0 +1,43 @@
+.sh {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.sh--aside {
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.sh__main {
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+}
+
+.sh__eyebrow {
+  display: flex;
+  align-items: center;
+  gap: var(--space-12);
+  color: var(--ink-muted);
+}
+
+.sh__rule {
+  width: 28px;
+  border-top: 1.5px solid var(--dash);
+}
+
+.sh__aside {
+  max-width: 380px;
+}
+
+@media (max-width: 768px) {
+  .sh--aside {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-12);
+  }
+}

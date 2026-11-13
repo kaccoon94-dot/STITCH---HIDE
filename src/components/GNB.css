@@ -1,0 +1,216 @@
+.gnb {
+  position: sticky;
+  top: 0;
+  z-index: 50;
+  display: flex;
+  justify-content: center;
+  padding: 20px var(--space-24);
+  background: var(--surface);
+  border-bottom: 1px solid transparent;
+  transition:
+    background-color 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.gnb.is-scrolled {
+  background: var(--surface-deep);
+  border-bottom-color: var(--line);
+}
+
+.gnb__bar {
+  position: relative;
+  width: 100%;
+  max-width: var(--nav-width);
+  height: var(--nav-height);
+  display: flex;
+  align-items: stretch;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+}
+
+.gnb__logo {
+  padding: 0 24px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-right: 1px solid var(--line);
+  border-radius: var(--radius-md) 0 0 var(--radius-md);
+}
+
+/* 로고 이미지(검은 바탕 워드마크): 바탕을 지우고 글자만 보이게.
+   크기: 기본 160×36의 1.5배 (사용자 요청 2026-11-13) */
+.gnb__logo img {
+  width: calc(var(--logo-w) * 1.5);
+  height: calc(var(--logo-h) * 1.5);
+  object-fit: cover;
+  object-position: center 50%;
+  mix-blend-mode: lighten;
+}
+
+.gnb__menu {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 36px;
+}
+
+.gnb__item {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+  font-size: 15px;
+  font-weight: 500;
+  line-height: 1.5;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.gnb__item:hover {
+  text-decoration: underline;
+  text-underline-offset: 6px;
+}
+
+.gnb__cta {
+  width: 180px;
+  flex-shrink: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: var(--ember);
+  color: var(--on-ember);
+  font-size: 15px;
+  font-weight: 700;
+  text-decoration: none;
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  margin: -1px -1px -1px 0;
+}
+
+.gnb__cta svg {
+  transition: transform 0.2s ease;
+}
+
+.gnb__cta:hover svg {
+  transform: translateX(4px);
+}
+
+.gnb__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--on-ember);
+}
+
+.gnb__toggle {
+  display: none;
+}
+
+/* 모바일·좁은 화면: 햄버거 메뉴, 맞춤 추천은 늘 보이게 */
+@media (max-width: 1000px) {
+  .gnb__logo img {
+    width: var(--logo-w);
+    height: var(--logo-h);
+  }
+
+  .gnb {
+    padding: 12px var(--space-16);
+  }
+
+  .gnb__bar {
+    height: 64px;
+  }
+
+  .gnb__logo {
+    width: auto;
+    flex: 1;
+    justify-content: flex-start;
+    min-width: 0;
+    padding: 0 var(--space-16);
+    border-right: 0;
+  }
+
+  .gnb__cta {
+    width: auto;
+    padding: 0 var(--space-16);
+    border-radius: 0;
+    margin: -1px 0;
+  }
+
+  .gnb__toggle {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 56px;
+    flex-shrink: 0;
+    padding: 0;
+    background: none;
+    border: 0;
+    border-left: 1px solid var(--line);
+    color: var(--ink);
+  }
+
+  .gnb__menu {
+    display: none;
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 0;
+    right: 0;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0;
+    padding: var(--space-8) 0;
+    background: var(--surface-raised);
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+  }
+
+  .gnb__menu.is-open {
+    display: flex;
+    animation: gnb-drop 0.2s ease;
+  }
+
+  .gnb__item {
+    min-height: 52px;
+    padding: 0 var(--space-24);
+    font-size: 16px;
+  }
+
+  .gnb__item + .gnb__item {
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 480px) {
+  .gnb__logo {
+    padding: 0 12px;
+  }
+
+  .gnb__logo img {
+    width: 128px;
+    height: 29px;
+  }
+
+  /* 로고가 잘리지 않도록 맞춤 추천 칸의 화살표는 숨김 (현재 위치 점은 유지) */
+  .gnb__cta {
+    padding: 0 12px;
+  }
+
+  .gnb__cta svg {
+    display: none;
+  }
+}
+
+@keyframes gnb-drop {
+  from {
+    opacity: 0;
+    transform: translateY(-6px);
+  }
+}

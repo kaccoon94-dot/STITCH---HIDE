@@ -1,0 +1,41 @@
+<!-- @dsCard group="Inputs" height=200 subtitle="하나만 고르는 선택" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>ChoiceChip</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: var(--font-sans); }
+  .band { background: var(--surface-raised); color: var(--ink); padding: var(--space-24) var(--space-32); }
+  fieldset { margin: 0; padding: 0; border: 0; }
+  legend { padding: 0; margin-bottom: 14px; font-size: 16px; font-weight: 700; }
+  .row { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+  .chip { height: var(--control-sm); min-width: 96px; padding: 0 24px; border-radius: var(--radius-sm); border: 1px solid var(--line-strong); background: var(--field); color: var(--ink); font: inherit; font-size: 16px; font-weight: 500; cursor: pointer; }
+  .chip[aria-pressed="true"] { background: var(--fill); border-color: var(--fill); color: var(--on-fill); font-weight: 700; }
+  .chip:focus-visible { outline: 2px solid var(--focus); outline-offset: 2px; }
+</style>
+</head>
+<body>
+<div class="band" data-theme="light">
+  <fieldset>
+    <legend>포지션</legend>
+    <div class="row">
+      <button class="chip" type="button" aria-pressed="false">투수</button>
+      <button class="chip" type="button" aria-pressed="true">내야수</button>
+      <button class="chip" type="button" aria-pressed="false">외야수</button>
+      <button class="chip" type="button" aria-pressed="false">포수</button>
+      <button class="chip" type="button" aria-pressed="false">1루수</button>
+    </div>
+  </fieldset>
+</div>
+<script>
+  document.querySelectorAll('.chip').forEach(function (b) {
+    b.addEventListener('click', function () {
+      document.querySelectorAll('.chip').forEach(function (o) { o.setAttribute('aria-pressed', 'false'); });
+      b.setAttribute('aria-pressed', 'true');
+    });
+  });
+</script>
+</body>
+</html>
