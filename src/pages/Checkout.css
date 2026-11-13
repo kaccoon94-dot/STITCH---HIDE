@@ -1,0 +1,186 @@
+.co__panel {
+  margin-top: var(--space-48);
+}
+
+.co__grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 28px var(--space-24);
+}
+
+.co__field--zip {
+  grid-column: 1;
+}
+
+.co__field--address,
+.co__field--detail,
+.co__field--request {
+  grid-column: 1 / -1;
+}
+
+.co__tiles {
+  margin-top: var(--space-48);
+  max-width: 720px;
+}
+
+.co__summary {
+  margin-top: var(--space-48);
+  max-width: 720px;
+}
+
+.co__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+  padding-bottom: var(--space-24);
+  margin-bottom: var(--space-24);
+  border-bottom: 1px solid var(--line);
+}
+
+.co__item {
+  display: grid;
+  grid-template-columns: 80px minmax(0, 1fr) auto;
+  gap: var(--space-16);
+  align-items: center;
+}
+
+.co__item img {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+  background: var(--surface-sunken);
+}
+
+.co__item-price {
+  font-weight: 500;
+  white-space: nowrap;
+}
+
+.co__empty {
+  padding-bottom: var(--space-24);
+  margin-bottom: var(--space-24);
+  border-bottom: 1px solid var(--line);
+}
+
+.co__error {
+  margin-top: var(--space-24);
+}
+
+.co__pay {
+  margin-top: var(--space-32);
+}
+
+/* P06-S04 주문 완료 */
+.co-done {
+  background: var(--surface);
+}
+
+.co-done__inner {
+  padding-top: var(--space-128);
+  padding-bottom: var(--space-160);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: var(--space-24);
+  animation: co-rise 0.5s ease both;
+}
+
+@keyframes co-rise {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+}
+
+.co-done__icon {
+  width: 88px;
+  height: 88px;
+  border-radius: var(--radius-full);
+  border: 1.5px solid var(--line-strong);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--ink);
+  margin-bottom: var(--space-8);
+}
+
+.co-done__care {
+  margin-top: var(--space-24);
+  width: 100%;
+  max-width: 520px;
+  padding: var(--space-32);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.co-done__care-head {
+  display: flex;
+  align-items: center;
+  gap: var(--space-8);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.co-done__care p {
+  font-size: 15px;
+  line-height: 1.8;
+  color: var(--ink-soft);
+}
+
+.co-done__btns {
+  margin-top: var(--space-24);
+  justify-content: center;
+}
+
+@media (max-width: 768px) {
+  .co__panel,
+  .co__tiles,
+  .co__summary {
+    margin-top: var(--space-32);
+  }
+
+  .co__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .co__item {
+    grid-template-columns: 64px minmax(0, 1fr);
+  }
+
+  .co__item img {
+    width: 64px;
+    height: 64px;
+  }
+
+  .co__item-price {
+    grid-column: 2;
+  }
+
+  .co__pay .btn {
+    width: 100%;
+  }
+
+  .co-done__inner {
+    padding-top: var(--space-96);
+    padding-bottom: var(--space-128);
+  }
+
+  .co-done__care {
+    padding: var(--space-24);
+  }
+
+  .co-done__btns {
+    width: 100%;
+    flex-direction: column;
+  }
+
+  .co-done__btns .btn {
+    width: 100%;
+  }
+}

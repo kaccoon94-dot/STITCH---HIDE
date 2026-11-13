@@ -1,0 +1,39 @@
+<!-- @dsCard group="Content" height=380 width=1000 subtitle="가운데형(P01) · 왼쪽형(P02~P06)" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>SectionHeader</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: var(--font-sans); }
+  .band { background: var(--surface); color: var(--ink); padding: var(--space-32) var(--space-48); }
+  .center { display: flex; flex-direction: column; align-items: center; text-align: center; }
+  .wide { margin: 0 -0.42em 0 0; font-family: var(--font-serif); font-weight: 500; font-size: 40px; line-height: 1.2; letter-spacing: 0.42em; }
+  .sub { margin: 20px 0 0; font-size: 17px; line-height: 1.7; color: var(--ink-muted); }
+  .notice { margin: 0 0 var(--space-32); font-size: 13px; color: var(--ink-muted); }
+  .split { display: flex; justify-content: space-between; align-items: flex-end; gap: var(--space-48); flex-wrap: wrap; }
+  .left { display: flex; flex-direction: column; gap: 14px; }
+  .eyebrow { display: flex; align-items: center; gap: 12px; font-size: 13px; font-weight: 700; letter-spacing: 0.18em; color: var(--ink-muted); }
+  .eyebrow::before { content: ""; width: 28px; border-top: 1.5px solid var(--ink); }
+  h1 { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: 32px; line-height: 1.5; }
+  .desc { margin: 0; max-width: 380px; font-size: 16px; line-height: 1.8; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="band center" data-theme="dark">
+  <h2 class="wide">BRAND STORY</h2>
+  <p class="sub">손에 길들수록 깊어지는 글러브, 그 시작을 소개합니다</p>
+</div>
+<div class="band" data-theme="light">
+  <p class="notice">콘텐츠 예시 · 상품명·가격·사양·추천 특성은 가상 데이터입니다.</p>
+  <div class="split">
+    <div class="left">
+      <span class="eyebrow">라벨 [미정]</span>
+      <h1>포지션에 맞는 글러브를 만나보세요</h1>
+    </div>
+    <p class="desc">포지션별 모델을 둘러보고, 관심 있는 글러브를 최대 3개까지 비교해 보세요.</p>
+  </div>
+</div>
+</body>
+</html>

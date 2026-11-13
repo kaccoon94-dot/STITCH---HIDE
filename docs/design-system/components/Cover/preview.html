@@ -1,0 +1,46 @@
+<!-- @dsCard height=288 -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>STITCH &amp; HIDE</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+  html, body { margin: 0; height: 100%; }
+  body { background: var(--surface); color: var(--ink); font-family: var(--font-sans); overflow: hidden; }
+  .cover { position: relative; height: 288px; overflow: hidden; }
+  .art { position: absolute; top: 0; left: 480px; width: 480px; height: 288px; }
+  .art svg { display: block; width: 480px; height: 288px; }
+  .hide { fill: var(--ink); rx: var(--radius-md); }
+  .ember { fill: var(--ember); rx: var(--radius-sm); }
+  .tool { fill: var(--line-strong); rx: var(--radius-md); }
+  .stitch { fill: none; stroke: var(--surface); stroke-width: 3; stroke-linecap: round; stroke-dasharray: 12 8; }
+  .words { position: absolute; left: var(--space-48); bottom: var(--space-32); max-width: 440px; }
+  .name { margin: 0; font-family: var(--font-serif); font-weight: 500; font-size: 88px; line-height: .95; letter-spacing: 0; color: var(--ink); }
+  .tag { margin: var(--space-16) 0 0 4px; font-size: 14px; line-height: 20px; color: var(--ink-muted); }
+</style>
+</head>
+<body>
+<div class="cover">
+  <div class="art" aria-hidden="true">
+    <svg viewBox="0 0 480 288" width="480" height="288">
+      <!--
+        blocks      ink (가죽) 192×288 세로 판, 위아래로 넘침 · ember 96×96 · line-strong 128×112, 위·오른쪽으로 넘침
+        arrangement 키 큰 가죽 판 하나 + 작은 위성 둘. 엠버는 넓은 어둠 속 작은 빛이라 가장 작게 둡니다(브랜드가 엠버를 ★ 행동에만 아껴 쓰는 방식 그대로).
+        pattern     literal motif: 바느질. 가죽 판 위에 바탕색으로 뚫은 점선 두 줄 — 이름 그대로 STITCH(바느질)가 HIDE(가죽)를 지나갑니다.
+        scales      점선 12/8 = space-12·space-8 · 판 모서리 radius-md 6px · 엠버 radius-sm 4px · 위치는 space-16 배수
+      -->
+      <rect class="hide" x="64" y="-16" width="192" height="320" rx="6"></rect>
+      <path class="stitch" d="M96 24 V264"></path>
+      <path class="stitch" d="M224 24 V264"></path>
+      <rect class="ember" x="256" y="160" width="96" height="96" rx="4"></rect>
+      <rect class="tool" x="368" y="-16" width="128" height="128" rx="6"></rect>
+    </svg>
+  </div>
+  <div class="words">
+    <p class="name">STITCH &amp;<br>HIDE</p>
+    <p class="tag">한 땀의 바느질과 엄선한 가죽, 손에 길들수록 깊어지는 글러브.</p>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,123 @@
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  height: var(--control-md);
+  padding: 0 32px;
+  border: 1px solid transparent;
+  border-radius: var(--radius-sm);
+  font-family: var(--font-sans);
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 1;
+  text-decoration: none;
+  white-space: nowrap;
+  cursor: pointer;
+  transition:
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    border-color 0.2s ease,
+    color 0.2s ease,
+    transform 0.1s ease;
+}
+
+.btn__arrow {
+  transition: transform 0.2s ease;
+}
+
+.btn:active {
+  transform: translateY(1px);
+}
+
+.btn:disabled {
+  cursor: not-allowed;
+  opacity: 0.5;
+}
+
+/* 주 버튼 */
+.btn--primary {
+  background: var(--fill);
+  color: var(--on-fill);
+}
+
+.btn--primary:hover {
+  box-shadow: 0 0 0 1px var(--fill);
+}
+
+/* ★ (어떤 종류든 ember) */
+.btn--primary.btn--star {
+  background: var(--ember);
+  color: var(--on-ember);
+}
+
+.btn--star:hover .btn__arrow,
+.btn--star:focus-visible .btn__arrow {
+  transform: translateX(4px);
+}
+
+.btn--primary.btn--star:hover {
+  box-shadow: 0 0 0 4px var(--ember-halo);
+}
+
+.btn--glow {
+  box-shadow: var(--shadow-ember);
+}
+
+.btn--glow:hover,
+.btn--glow:focus-visible {
+  box-shadow: var(--shadow-ember-hover);
+}
+
+.btn--lg {
+  height: var(--control-lg);
+  padding: 0 36px;
+  font-size: 17px;
+}
+
+/* 보조 버튼 */
+.btn--secondary {
+  background: transparent;
+  color: var(--ink);
+  border-color: var(--line-strong);
+  font-weight: 500;
+}
+
+.btn--secondary:hover {
+  border-color: var(--ink);
+}
+
+/* 텍스트 버튼 */
+.btn--text {
+  padding: 0 8px;
+  background: transparent;
+  color: var(--ink);
+  font-weight: 500;
+  text-decoration: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 6px;
+}
+
+.btn--text:hover {
+  text-decoration-thickness: 2px;
+}
+
+.btn--text.btn--star {
+  font-weight: 700;
+  text-decoration-color: var(--ember);
+  text-decoration-thickness: 2px;
+}
+
+.btn--text.btn--star:hover {
+  text-decoration-thickness: 3px;
+}
+
+@media (max-width: 768px) {
+  .btn {
+    padding: 0 24px;
+  }
+
+  .btn--text {
+    padding: 0 8px;
+  }
+}

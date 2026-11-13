@@ -1,0 +1,64 @@
+<!-- @dsCard group="Content" height=520 width=1000 subtitle="P03 모델 카드 · P02 결과 카드" -->
+<!doctype html>
+<html lang="ko">
+<head>
+<meta charset="utf-8">
+<title>ModelCard</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&family=Noto+Serif+KR:wght@500&display=swap" rel="stylesheet">
+<style>
+  body { margin: 0; font-family: var(--font-sans); }
+  .wrap { display: flex; }
+  .band { background: var(--surface); color: var(--ink); padding: var(--space-32); box-sizing: border-box; }
+  .card { background: var(--surface-raised); border: 1px solid var(--line); border-radius: var(--radius-md); overflow: hidden; transition: border-color .2s, background-color .2s; }
+  .head { display: flex; justify-content: space-between; align-items: baseline; gap: 16px; }
+  .name { margin: 0; font-size: 16px; font-weight: 700; }
+  .price { font-size: 15px; color: var(--ink-soft); }
+  .slot { background: var(--surface-sunken); display: flex; align-items: flex-end; padding: 12px; box-sizing: border-box; font-size: 12px; color: var(--ink-faint); }
+  .tags { display: flex; gap: var(--space-8); flex-wrap: wrap; }
+  .tag { font-size: 13px; padding: 4px 10px; border: 1px solid var(--line-strong); border-radius: var(--radius-sm); color: var(--ink-soft); }
+  .foot { display: flex; justify-content: space-between; align-items: center; }
+  .chk { display: flex; align-items: center; gap: 8px; font-size: 15px; }
+  .chk input { width: 20px; height: 20px; accent-color: var(--fill); }
+  .btn { height: 48px; padding: 0 20px; box-sizing: border-box; display: inline-flex; align-items: center; border-radius: var(--radius-sm); font-size: 15px; font-weight: 500; text-decoration: none; color: var(--ink); border: 1px solid var(--line-strong); }
+  .btn.primary { background: var(--fill); color: var(--on-fill); border-color: var(--fill); font-weight: 700; height: 56px; padding: 0 28px; font-size: 16px; }
+  .small { width: 340px; display: flex; flex-direction: column; gap: 16px; padding: 20px; }
+  .small:hover { border-color: var(--line-strong); }
+  .small:hover .btn { background: var(--fill); color: var(--on-fill); border-color: var(--fill); }
+  .big .head { padding: 20px 28px; border-bottom: 1px solid var(--line); }
+  .big .head .name, .big .head .price { font-family: var(--font-serif); font-weight: 500; font-size: 24px; color: var(--ink); }
+  .big .body { display: flex; gap: var(--space-32); padding: 28px; align-items: center; }
+  .size { margin: 6px 0 0; font-family: var(--font-serif); font-size: 28px; font-weight: 500; }
+  .lab { font-size: 13px; font-weight: 700; letter-spacing: 0.12em; color: var(--ink-muted); }
+  .desc { margin: 16px 0 20px; font-size: 15px; line-height: 1.8; color: var(--ink-soft); }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div class="band" data-theme="light">
+    <article class="card small">
+      <div class="head"><h3 class="name">필드 핏 내야수 글러브</h3><span class="price">189,000원</span></div>
+      <div class="slot" style="height: 200px;">모델 이미지 384×260 · 배경을 지운 글러브</div>
+      <div class="tags"><span class="tag">내야수용</span><span class="tag">11.5인치</span><span class="tag">소가죽</span></div>
+      <div class="foot">
+        <label class="chk"><input type="checkbox">비교 담기</label>
+        <a class="btn" href="#">상세 보기</a>
+      </div>
+    </article>
+  </div>
+  <div class="band" data-theme="dark" style="flex: 1;">
+    <article class="card big">
+      <div class="head"><h3 class="name">필드 핏 내야수 글러브</h3><span class="price">189,000원</span></div>
+      <div class="body">
+        <div class="slot" style="width: 220px; height: 220px; flex-shrink: 0;">추천 모델 이미지 480×360</div>
+        <div>
+          <span class="lab">추천 크기</span>
+          <p class="size">11.5인치 · 왼손 착용</p>
+          <p class="desc">내야수 · 손 길이 18.5 cm · 오른손 투구 기준의 추천 예시입니다.</p>
+          <a class="btn primary" href="#">장바구니 담기</a>
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,36 @@
+.stepper {
+  display: inline-flex;
+  align-items: stretch;
+  height: 44px;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--field);
+}
+
+.stepper button {
+  width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  background: none;
+  border: 0;
+  color: var(--ink);
+}
+
+.stepper button:disabled {
+  color: var(--ink-muted);
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.stepper output {
+  min-width: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-left: 1px solid var(--line);
+  border-right: 1px solid var(--line);
+  font-size: 16px;
+  font-weight: 500;
+}

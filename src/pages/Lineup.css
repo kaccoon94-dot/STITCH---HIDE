@@ -1,0 +1,203 @@
+.lineup__filter {
+  margin-top: var(--space-48);
+}
+
+.lineup__info {
+  margin-top: var(--space-32);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1.4fr);
+  gap: var(--space-24);
+}
+
+.lineup__price-box {
+  padding: var(--space-24) var(--space-32);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+}
+
+.lineup__banner {
+  padding: var(--space-24) var(--space-32);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-24);
+}
+
+.lineup__grid {
+  margin-top: var(--space-48);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-24);
+}
+
+.lineup__limit {
+  margin-top: var(--space-16);
+}
+
+.lineup__count {
+  display: inline-block;
+  color: var(--ink);
+  animation: lineup-pulse 0.5s ease;
+}
+
+@keyframes lineup-pulse {
+  40% {
+    transform: scale(1.35);
+  }
+}
+
+.lineup__empty {
+  margin-top: var(--space-48);
+  padding: var(--space-48) var(--space-32);
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  text-align: center;
+}
+
+/* 비교 표 */
+.lineup__table-wrap {
+  margin-top: var(--space-48);
+  overflow-x: auto;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  background: var(--surface-raised);
+}
+
+.cmp {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.cmp th,
+.cmp td {
+  padding: var(--space-16) var(--space-24);
+  text-align: left;
+  vertical-align: middle;
+  border-bottom: 1px solid var(--line);
+}
+
+.cmp tbody tr:last-child th,
+.cmp tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+.cmp tbody th {
+  width: 180px;
+  font-weight: 700;
+  color: var(--ink-soft);
+  white-space: nowrap;
+}
+
+.cmp thead th {
+  vertical-align: top;
+  padding-top: var(--space-24);
+}
+
+.cmp thead th img {
+  width: 200px;
+  max-width: 100%;
+  aspect-ratio: 200 / 140;
+  object-fit: cover;
+  background: var(--surface-sunken);
+  margin-bottom: var(--space-12);
+}
+
+.cmp__corner {
+  font-size: 16px;
+  color: var(--ink-soft);
+}
+
+.cmp__btn {
+  height: 44px;
+  padding: 0 20px;
+  font-size: 15px;
+}
+
+.lineup__bar {
+  display: none;
+}
+
+@media (max-width: 1024px) {
+  .lineup__info {
+    grid-template-columns: 1fr;
+  }
+
+  .lineup__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  .lineup__filter {
+    margin-top: var(--space-32);
+  }
+
+  .lineup__price-box,
+  .lineup__banner {
+    padding: var(--space-24);
+  }
+
+  .lineup__banner {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  .lineup__grid {
+    grid-template-columns: 1fr;
+    gap: var(--space-16);
+  }
+
+  .cmp th,
+  .cmp td {
+    padding: var(--space-12) var(--space-16);
+  }
+
+  .cmp tbody th {
+    width: auto;
+  }
+
+  .cmp thead th {
+    min-width: 160px;
+  }
+
+  /* 화면 아래 비교 막대 */
+  .lineup__bar {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 40;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: var(--space-16);
+    padding: var(--space-12) var(--space-16);
+    padding-bottom: calc(var(--space-12) + env(safe-area-inset-bottom));
+    background: var(--surface-raised);
+    border-top: 1px solid var(--line);
+    font-size: 15px;
+  }
+
+  .lineup__bar-link {
+    height: 44px;
+    padding: 0 var(--space-24);
+    display: inline-flex;
+    align-items: center;
+    background: var(--fill);
+    color: var(--on-fill);
+    border-radius: var(--radius-sm);
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .lineup .section--last {
+    padding-bottom: 160px;
+  }
+}

@@ -1,0 +1,174 @@
+.rec__layout {
+  margin-top: var(--space-56);
+}
+
+/* P02-S01A 아이 기준 추천 — 아래로 펼쳐짐(0.3초) */
+.rec__child {
+  padding: var(--space-32);
+  background: var(--surface-sunken);
+  border-radius: var(--radius-md);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+  animation: rec-expand 0.3s ease both;
+  transform-origin: top;
+}
+
+.rec__child-label {
+  letter-spacing: 0.12em;
+}
+
+@keyframes rec-expand {
+  from {
+    opacity: 0;
+    transform: translateY(-8px) scaleY(0.96);
+  }
+}
+
+.rec__submit {
+  align-self: flex-start;
+}
+
+/* 결과 단계 */
+.rec__result-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  gap: var(--space-32);
+  flex-wrap: wrap;
+}
+
+.rec__summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-8);
+}
+
+.rec__summary li {
+  height: 40px;
+  padding: 0 var(--space-16);
+  display: flex;
+  align-items: center;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  background: var(--surface-raised);
+  font-size: 15px;
+  font-weight: 500;
+}
+
+/* 결과 카드 (dark) — 떠오르며 등장 */
+.rec__card {
+  margin-top: var(--space-48);
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  animation: rec-rise 0.5s ease both;
+}
+
+@keyframes rec-rise {
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+}
+
+.rec__card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: var(--space-24);
+  padding: 28px 40px;
+  border-bottom: 1px solid var(--line);
+}
+
+.rec__card-body {
+  display: flex;
+  gap: var(--space-56);
+  padding: 40px;
+  align-items: center;
+}
+
+.rec__card-img {
+  flex: 0 1 480px;
+  background: var(--surface-sunken);
+}
+
+.rec__card-img img {
+  width: 100%;
+  aspect-ratio: 480 / 360;
+  object-fit: cover;
+}
+
+.rec__card-info {
+  flex: 1 1 360px;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.rec__size {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.rec__size .t-eyebrow {
+  letter-spacing: 0.12em;
+}
+
+.rec__btns {
+  margin-top: var(--space-8);
+}
+
+@media (max-width: 1024px) {
+  .rec__card-body {
+    flex-direction: column;
+    align-items: stretch;
+    gap: var(--space-32);
+  }
+
+  .rec__card-img {
+    flex: none;
+  }
+
+  .rec__card-info {
+    flex: none;
+  }
+}
+
+@media (max-width: 768px) {
+  .rec__layout {
+    margin-top: var(--space-32);
+  }
+
+  .rec__child {
+    padding: var(--space-24) var(--space-16);
+    gap: var(--space-24);
+  }
+
+  .rec__submit {
+    align-self: stretch;
+  }
+
+  .rec__result-head {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: var(--space-24);
+  }
+
+  .rec__card {
+    margin-top: var(--space-32);
+  }
+
+  .rec__card-head {
+    padding: var(--space-24);
+    flex-direction: column;
+    gap: 4px;
+  }
+
+  .rec__card-body {
+    padding: var(--space-24);
+  }
+}

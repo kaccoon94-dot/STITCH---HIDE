@@ -1,0 +1,271 @@
+.pd__top {
+  display: grid;
+  grid-template-columns: minmax(0, 640px) minmax(0, 1fr);
+  gap: var(--space-56);
+  align-items: start;
+}
+
+.pd__main {
+  position: relative;
+  background: var(--surface-sunken);
+  overflow: hidden;
+}
+
+/* 돋보기: 마우스가 올라간 부분만 동그랗게 확대 (마우스가 있는 화면에서만) */
+.pd__lens {
+  display: none;
+}
+
+@media (hover: hover) and (pointer: fine) {
+  .pd__main {
+    cursor: crosshair;
+  }
+
+  .pd__lens {
+    display: block;
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border-radius: var(--radius-full);
+    border: 2px solid var(--surface-raised);
+    box-shadow: 0 0 0 1px var(--line-strong);
+    background-color: var(--surface-sunken);
+    background-repeat: no-repeat;
+    transform: translate(-50%, -50%) scale(0.6);
+    opacity: 0;
+    pointer-events: none;
+    transition:
+      opacity 0.2s ease,
+      transform 0.2s ease;
+  }
+
+  .pd__main:hover .pd__lens {
+    opacity: 1;
+    transform: translate(-50%, -50%) scale(1);
+  }
+}
+
+.pd__main img {
+  width: 100%;
+  aspect-ratio: 640 / 480;
+  object-fit: cover;
+  animation: pd-fade 0.3s ease;
+}
+
+@keyframes pd-fade {
+  from {
+    opacity: 0.4;
+  }
+}
+
+.pd__thumbs {
+  margin-top: var(--space-16);
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-16);
+}
+
+.pd__thumbs button {
+  display: block;
+  width: 100%;
+  padding: 0;
+  background: var(--surface-sunken);
+  border: 1px solid var(--line);
+  border-radius: 0;
+  overflow: hidden;
+  transition: border-color 0.15s ease;
+}
+
+.pd__thumbs button:hover {
+  border-color: var(--ink);
+}
+
+.pd__thumbs img {
+  width: 100%;
+  aspect-ratio: 148 / 110;
+  object-fit: cover;
+}
+
+.pd__info {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-16);
+}
+
+.pd__price {
+  margin-top: -4px;
+}
+
+.pd__options {
+  margin-top: var(--space-16);
+  padding-top: var(--space-32);
+  border-top: 1px solid var(--line);
+  display: flex;
+  flex-direction: column;
+  gap: 28px;
+}
+
+.pd__options .select {
+  max-width: 320px;
+}
+
+.pd__btns {
+  margin-top: var(--space-16);
+}
+
+.pd__bottom {
+  margin-top: var(--space-72);
+  display: flex;
+  gap: var(--space-48);
+  align-items: flex-start;
+}
+
+/* 상세 스펙 표 */
+.spec {
+  flex: 1;
+  min-width: 0;
+  border-collapse: collapse;
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.spec th,
+.spec td {
+  padding: 18px var(--space-24);
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--line);
+}
+
+.spec th {
+  width: 160px;
+  font-weight: 700;
+  color: var(--ink);
+  white-space: nowrap;
+}
+
+.spec__main {
+  display: block;
+  font-weight: 500;
+}
+
+.spec__note {
+  display: block;
+  font-size: 15px;
+  color: var(--ink-muted);
+}
+
+.spec ~ .helpbox-wrap {
+  flex: 0 1 400px;
+}
+
+/* P04-S02 관리법 */
+.care__list {
+  margin-top: var(--space-48);
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-24);
+}
+
+.care__card {
+  background: var(--surface-raised);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.care__card img {
+  width: 100%;
+  aspect-ratio: 384 / 220;
+  object-fit: cover;
+  background: var(--surface-sunken);
+}
+
+.care__text {
+  padding: var(--space-24);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-12);
+}
+
+.care__btns {
+  margin-top: var(--space-48);
+}
+
+@media (max-width: 1024px) {
+  .pd__top {
+    grid-template-columns: 1fr;
+    gap: var(--space-32);
+  }
+
+  .pd__bottom {
+    flex-direction: column;
+    gap: var(--space-32);
+  }
+
+  .spec {
+    width: 100%;
+  }
+
+  .spec ~ .helpbox-wrap {
+    flex: none;
+  }
+
+  .care__list {
+    grid-template-columns: 1fr;
+  }
+
+  .care__card {
+    display: grid;
+    grid-template-columns: minmax(0, 320px) minmax(0, 1fr);
+  }
+
+  .care__card img {
+    height: 100%;
+  }
+}
+
+@media (max-width: 768px) {
+  .pd__thumbs {
+    gap: var(--space-8);
+  }
+
+  .pd__options .select {
+    max-width: none;
+  }
+
+  .pd__bottom {
+    margin-top: var(--space-48);
+  }
+
+  .spec th,
+  .spec td {
+    display: block;
+    width: 100%;
+    padding: 0 var(--space-16);
+    border: 0;
+  }
+
+  .spec th {
+    padding-top: var(--space-16);
+  }
+
+  .spec td {
+    padding-bottom: var(--space-16);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .spec tr:last-child td {
+    border-bottom: 0;
+  }
+
+  .care__card {
+    display: block;
+  }
+
+  .care__card img {
+    height: auto;
+  }
+}
