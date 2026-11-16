@@ -83,3 +83,61 @@
 [data-theme] {
   color: var(--ink);
 }
+
+/* ── 사이트 전체 화면 모드 (다크 / 화이트) ──────────────────────────
+   <html data-mode="dark|light">가 붙으면 섹션별 data-theme보다 우선해
+   사이트 전체를 한 가지 밝기로 맞춥니다. 사진 위 글자처럼 밝기가 고정돼야
+   하는 곳은 data-theme-fixed를 달아 이 전환에서 빠집니다.
+   전환 버튼: GNB의 '화이트 모드 / 다크 모드' (src/hooks/useColorMode.js) */
+
+html[data-mode='dark'],
+html[data-mode='dark'] [data-theme]:not([data-theme-fixed]) {
+  --surface: #0a0908;
+  --surface-raised: #15120f;
+  --surface-sunken: #1c1916;
+  --field: #1c1916;
+  --ink: #f2ece3;
+  --ink-soft: #cfc6ba;
+  --ink-muted: #a39a8f;
+  --ink-faint: #8c847a;
+  --line: #2e2925;
+  --line-strong: #6b635a;
+  --dash: #6b635a;
+  --fill: #f2ece3;
+  --on-fill: #0a0908;
+  --focus: #f2ece3;
+  --surface-deep: #060606;
+  --logo-filter: none;
+  --logo-blend: lighten;
+  color-scheme: dark;
+}
+
+html[data-mode='light'],
+html[data-mode='light'] [data-theme]:not([data-theme-fixed]) {
+  --surface: #f4efe7;
+  --surface-raised: #fbf8f3;
+  --surface-sunken: #ede6db;
+  --field: #ffffff;
+  --ink: #1a1714;
+  --ink-soft: #3a342e;
+  --ink-muted: #5e564e;
+  --ink-faint: #5e564e;
+  --line: #ddd5ca;
+  --line-strong: #8c847a;
+  --dash: #c9bfb2;
+  --fill: #1a1714;
+  --on-fill: #f4efe7;
+  --focus: #1a1714;
+  --surface-deep: #ece5da;
+  /* 검은 바탕 로고를 뒤집어 흰 바탕에 어두운 글자로 */
+  --logo-filter: invert(1) brightness(1.08) contrast(1.25);
+  --logo-blend: multiply;
+  color-scheme: light;
+}
+
+/* 밝기가 고정된 영역(사진 위 첫 화면 등)은 모드와 상관없이 원래 테마 유지 */
+[data-theme-fixed][data-theme='dark'] {
+  --logo-filter: none;
+  --logo-blend: lighten;
+  color-scheme: dark;
+}

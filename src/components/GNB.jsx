@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation } from 'react-router-dom'
 import { IMAGES } from '../data/images.js'
-import { ArrowRight, Bag, Close, Grid, Menu, Needle, User } from './Icons.jsx'
+import useColorMode from '../hooks/useColorMode.js'
+import { ArrowRight, Bag, Close, Grid, Menu, Moon, Needle, Sun, User } from './Icons.jsx'
 import './GNB.css'
 
 export default function GNB() {
@@ -12,6 +13,8 @@ export default function GNB() {
   const open = openPath === pathname
   const setOpen = (v) => setOpenPath(v ? pathname : null)
   const onRecommend = pathname === '/recommend'
+  const [mode, toggleMode] = useColorMode()
+  const nextLabel = mode === 'dark' ? '화이트 모드' : '다크 모드'
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -53,6 +56,16 @@ export default function GNB() {
           <button type="button" className="gnb__item gnb__item--button">
             <User />
             로그인
+          </button>
+          <button
+            type="button"
+            className="gnb__item gnb__item--button gnb__mode"
+            aria-label={`${nextLabel}로 바꾸기`}
+            title={`${nextLabel}로 바꾸기`}
+            onClick={toggleMode}
+          >
+            {mode === 'dark' ? <Sun /> : <Moon />}
+            <span className="gnb__mode-label">{nextLabel}</span>
           </button>
         </div>
 

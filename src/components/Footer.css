@@ -18,7 +18,8 @@
   height: var(--logo-h);
   flex-shrink: 0;
   object-fit: cover;
-  mix-blend-mode: lighten;
+  filter: var(--logo-filter, none);
+  mix-blend-mode: var(--logo-blend, lighten);
 }
 
 .footer__links {

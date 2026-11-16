@@ -11,7 +11,7 @@ export default function Home() {
   return (
     <main id="main" tabIndex={-1} className="home" data-theme="dark">
       {/* P01-S01 첫 화면 */}
-      <section id="P01-S01" className="hero" aria-labelledby="hero-title">
+      <section id="P01-S01" className="hero" aria-labelledby="hero-title" data-theme="dark" data-theme-fixed>
         <img className="hero__bg" src={IMAGES.heroBg} alt="" aria-hidden="true" fetchPriority="high" />
         <div className="hero__content">
           <h1 id="hero-title" className="t-display-xl hero__in hero__in--1">

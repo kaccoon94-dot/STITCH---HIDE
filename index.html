@@ -4,6 +4,19 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STITCH &amp; HIDE</title>
+    <!-- 화면 모드(다크/화이트)를 그리기 전에 정해 깜빡임을 막습니다 (src/hooks/useColorMode.js) -->
+    <script>
+      ;(function () {
+        var m = null
+        try {
+          m = localStorage.getItem('sh-color-mode')
+        } catch (e) {}
+        if (m !== 'dark' && m !== 'light') {
+          m = window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
+        }
+        document.documentElement.setAttribute('data-mode', m)
+      })()
+    </script>
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" />
     <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
