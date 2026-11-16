@@ -1,0 +1,27 @@
+/* P07 로그인 */
+.login__panel {
+  margin-top: var(--space-56);
+  max-width: 560px;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-32);
+}
+
+/* 데스크탑: 로그인 창을 가운데로 */
+@media (min-width: 1025px) {
+  .login__panel {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.login__submit {
+  width: 100%;
+}
+
+.login__notice {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  margin-top: calc(var(--space-16) * -1);
+}
