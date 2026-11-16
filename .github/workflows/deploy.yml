@@ -34,6 +34,20 @@ jobs:
       # 주소를 직접 열거나 새로고침해도(/STITCH---HIDE/lineup 등) 앱이 뜨도록
       - run: cp dist/index.html dist/404.html
 
+      # 페이지 주소마다 실제 HTML 파일(lineup.html 등)을 둬서 직접 열거나 새로고침해도 404 없이 200으로 응답하게 합니다.
+      # GitHub Pages는 /lineup 요청에 lineup.html을 주소 그대로(끝에 / 없이) 보여 줍니다.
+      # (src/App.jsx의 주소 목록과 맞춰 주세요. 상품 상세는 src/data/products.js의 id를 읽어 자동으로 만듭니다.)
+      - name: Create route pages
+        run: |
+          for route in recommend lineup cart checkout login; do
+            cp dist/index.html "dist/$route.html"
+          done
+          mkdir -p dist/product
+          for id in $(grep -oP "^\s*id: '\K[^']+" src/data/products.js); do
+            cp dist/index.html "dist/product/$id.html"
+          done
+          find dist -name '*.html' | sort
+
       - uses: actions/upload-pages-artifact@v3
         with:
           path: dist
