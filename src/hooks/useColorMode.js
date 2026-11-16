@@ -18,6 +18,18 @@ function systemMode() {
   return window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark'
 }
 
+// 파비콘도 모드에 맞춰: favicon.svg ↔ favicon-light.svg, favicon-32.png ↔ favicon-light-32.png,
+// apple-touch-icon.png ↔ apple-touch-icon-light.png (index.html의 link[data-mode-icon])
+const ICON_NAME = /(favicon|apple-touch-icon)(?:-light)?(?=[-.][^/]*$)/
+
+function applyFavicon(mode) {
+  document.querySelectorAll('link[data-mode-icon]').forEach((link) => {
+    const href = link.getAttribute('href')
+    const next = href.replace(ICON_NAME, mode === 'light' ? '$1-light' : '$1')
+    if (next !== href) link.setAttribute('href', next)
+  })
+}
+
 export default function useColorMode() {
   const [mode, setMode] = useState(
     () => document.documentElement.dataset.mode || readSaved() || systemMode(),
@@ -25,6 +37,7 @@ export default function useColorMode() {
 
   useEffect(() => {
     document.documentElement.dataset.mode = mode
+    applyFavicon(mode)
   }, [mode])
 
   // 직접 고른 적이 없으면 기기 설정이 바뀔 때 따라갑니다.
