@@ -248,3 +248,54 @@
     text-align: center;
   }
 }
+
+/* 비교 표에서 바로 빼기 */
+.cmp thead th.cmp__model {
+  position: relative;
+}
+
+.cmp__remove {
+  position: absolute;
+  top: var(--space-8);
+  right: var(--space-8);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  padding: 0;
+  background: transparent;
+  border: 0;
+  color: var(--ink-soft);
+  cursor: pointer;
+  z-index: 1;
+}
+
+.cmp__remove::before {
+  content: '';
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--line-strong);
+  border-radius: 50%;
+  background: var(--surface-raised);
+  z-index: -1;
+}
+
+.cmp__remove:hover {
+  color: var(--ink);
+}
+
+.cmp__remove:focus-visible {
+  outline: 2px solid var(--ember);
+  outline-offset: -4px;
+  border-radius: 50%;
+}
+
+/* 모바일: 좁은 칸에서는 버튼을 모서리에 붙임 */
+@media (max-width: 768px) {
+  .cmp__remove {
+    top: 0;
+    right: 0;
+  }
+}
