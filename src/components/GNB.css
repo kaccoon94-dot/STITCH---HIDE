@@ -116,9 +116,13 @@
 
 /* 모바일·좁은 화면: 햄버거 메뉴, 맞춤 추천은 늘 보이게 */
 @media (max-width: 1000px) {
+  /* 모바일 로고: 기본 160×36의 1.5배 (사용자 요청 2026-11-16). 메뉴바 높이는 그대로,
+     화면이 좁아 칸이 모자라면 비율을 지키며 칸에 맞게 줄어듭니다. */
   .gnb__logo img {
-    width: var(--logo-w);
-    height: var(--logo-h);
+    width: calc(var(--logo-w) * 1.5);
+    max-width: 100%;
+    height: auto;
+    aspect-ratio: 240 / 54;
   }
 
   .gnb {
@@ -195,8 +199,7 @@
   }
 
   .gnb__logo img {
-    width: 128px;
-    height: 29px;
+    width: 192px; /* 128×29의 1.5배 */
   }
 
   /* 로고가 잘리지 않도록 맞춤 추천 칸의 화살표는 숨김 (현재 위치 점은 유지) */
