@@ -78,8 +78,8 @@ export default function Recommend() {
                     id="hand-me"
                     label="손 길이"
                     hint="손목 주름 ~ 가운뎃손가락 끝"
-                    min={15}
-                    max={23}
+                    min={18}
+                    max={30}
                     value={hand}
                     onChange={setHand}
                   />
