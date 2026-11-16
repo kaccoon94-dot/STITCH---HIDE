@@ -1,3 +1,4 @@
+import { useNavigate } from 'react-router-dom'
 import { formatPrice, formatSize } from '../data/products.js'
 import Button from './Button.jsx'
 import './ModelCard.css'
@@ -29,8 +30,17 @@ function resetTilt(e) {
 
 export default function ModelCard({ product, compared, compareDisabled, onToggleCompare }) {
   const checkId = `cmp-${product.id}`
+  const navigate = useNavigate()
+
+  // 카드 아무 곳이나 누르면 상세 보기로 이동 (사용자 요청 2026-11-16).
+  // '비교 담기'·'상세 보기'처럼 자체 동작이 있는 요소를 누른 경우는 제외합니다.
+  const openDetail = (e) => {
+    if (e.target.closest('a, button, input, label')) return
+    navigate(`/product/${product.id}`)
+  }
+
   return (
-    <article className="mc" onMouseMove={tilt} onMouseLeave={resetTilt}>
+    <article className="mc" onMouseMove={tilt} onMouseLeave={resetTilt} onClick={openDetail}>
       <header className="mc__head">
         <h3 className="t-label">{product.name}</h3>
         <span className="mc__price">{formatPrice(product.price)}</span>
