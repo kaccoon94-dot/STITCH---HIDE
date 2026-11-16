@@ -1,7 +1,7 @@
 // 선택지 목록. [임시] 표시는 문서에 없어 임시로 채운 값입니다.
 
 export const WHO_OPTIONS = [
-  { label: '나', value: 'me' },
+  { label: '성인', value: 'me' },
   { label: '아이', value: 'child' },
 ]
 
