@@ -121,3 +121,32 @@
     padding: 0 8px;
   }
 }
+
+/* [모바일 #6] 터치 기기(모바일·태블릿): 마우스 올림 효과를 기본 상태로 되돌립니다. 키보드 포커스 표시는 유지. */
+@media (hover: none) and (pointer: coarse) {
+  .btn--primary:hover,
+  .btn--primary.btn--star:hover {
+    box-shadow: none;
+  }
+
+  .btn.btn--glow:hover:not(:focus-visible),
+  .btn--primary.btn--star.btn--glow:hover:not(:focus-visible) {
+    box-shadow: var(--shadow-ember);
+  }
+
+  .btn--star:hover:not(:focus-visible) .btn__arrow {
+    transform: none;
+  }
+
+  .btn--secondary:hover {
+    border-color: var(--line-strong);
+  }
+
+  .btn--text:hover {
+    text-decoration-thickness: 1px;
+  }
+
+  .btn--text.btn--star:hover {
+    text-decoration-thickness: 2px;
+  }
+}

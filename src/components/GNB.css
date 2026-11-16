@@ -214,3 +214,14 @@
     transform: translateY(-6px);
   }
 }
+
+/* [모바일 #3·GNB 메뉴] 터치 기기(모바일·태블릿): 메뉴 밑줄, 맞춤 추천 화살표 이동 hover를 없앱니다. 현재 위치 점은 유지. */
+@media (hover: none) and (pointer: coarse) {
+  .gnb__item:hover {
+    text-decoration: none;
+  }
+
+  .gnb__cta:hover svg {
+    transform: none;
+  }
+}

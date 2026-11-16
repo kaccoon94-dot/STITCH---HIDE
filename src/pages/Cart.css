@@ -114,3 +114,10 @@
     max-width: none;
   }
 }
+
+/* [모바일 #30] 터치 기기(모바일·태블릿): 상품명 링크 hover 밑줄을 없앱니다. */
+@media (hover: none) and (pointer: coarse) {
+  .cart__link:hover {
+    text-decoration: none;
+  }
+}
