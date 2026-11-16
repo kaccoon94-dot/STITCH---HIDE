@@ -109,6 +109,33 @@
   max-width: 320px;
 }
 
+/* 주로 던지는 손: 오른손·왼손 두 버튼을 합친 너비가 사이즈·수량 칸과 같게 */
+.pd__options .chips__list {
+  max-width: 320px;
+  flex-wrap: nowrap;
+}
+
+.pd__options .chip {
+  flex: 1 1 0;
+  min-width: 0;
+}
+
+/* 수량 칸: 사이즈 선택 칸과 같은 너비·높이 */
+.pd__options .stepper {
+  width: 100%;
+  max-width: 320px;
+  height: var(--control-sm);
+}
+
+.pd__options .stepper button {
+  width: var(--control-sm);
+  flex-shrink: 0;
+}
+
+.pd__options .stepper output {
+  flex: 1;
+}
+
 .pd__btns {
   margin-top: var(--space-16);
 }
@@ -158,6 +185,9 @@
 }
 
 .spec ~ .helpbox-wrap {
+  /* 데스크톱: 스크롤할 때 왼쪽 상세 스펙 표 높이 안에서만 따라 내려옴 (GNB 아래) */
+  position: sticky;
+  top: calc(var(--nav-height) + 40px + var(--space-24));
   flex: 0 1 400px;
 }
 
@@ -210,6 +240,7 @@
   }
 
   .spec ~ .helpbox-wrap {
+    position: static;
     flex: none;
   }
 
@@ -233,6 +264,14 @@
   }
 
   .pd__options .select {
+    max-width: none;
+  }
+
+  .pd__options .chips__list {
+    max-width: none;
+  }
+
+  .pd__options .stepper {
     max-width: none;
   }
 
