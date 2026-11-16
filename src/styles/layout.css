@@ -125,6 +125,13 @@
   line-height: 1.5;
 }
 
+/* 필수 입력 표시 */
+.field__req {
+  margin-left: 4px;
+  color: var(--ember);
+  font-weight: 700;
+}
+
 .input,
 .select {
   height: var(--control-sm);
