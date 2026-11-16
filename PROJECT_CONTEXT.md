@@ -407,7 +407,9 @@
 - 폴더 구조: 프로젝트 루트 `STITCH & HIDE/`, `docs/` 기획 문서 폴더는 **삭제하지 않습니다**, `assets/` 에셋 폴더 (출처: 사용자 요청) / 소스 폴더: `src/pages`(P01~P07), `src/components`(디자인 시스템 컴포넌트), `src/data`(상품·추천 규칙·선택지), `src/context`(장바구니), `src/styles`(토큰·글자·레이아웃)
 - 실행: 폴더 이름의 `&` 때문에 npm 스크립트는 `node node_modules/vite/bin/vite.js`로 실행합니다(`npm run dev`).
 - 장바구니는 브라우저 localStorage에 저장하고, 처음에는 와이어프레임 P05 예시 두 줄로 시작합니다. 결제 완료 시 비웁니다.
-- 배포 방법: Vercel + GitHub 저장소 `kaccoon94-dot/STITCH---HIDE` 연결 (출처: 사용자 답변(2026-11-13))
+- 배포 방법: GitHub Pages — GitHub 저장소 `kaccoon94-dot/STITCH---HIDE`의 main에 push하면 GitHub Actions(`.github/workflows/deploy.yml`)가 빌드해 배포합니다 (처음 계획은 Vercel(사용자 답변(2026-11-13))이었고, 실제 배포 방식에 맞춰 문서를 고침, 출처: 사용자 요청(2026-11-16))
+  - 주소: https://kaccoon94-dot.github.io/STITCH---HIDE/ (`vite.config.js`의 `base: '/STITCH---HIDE/'`, React Router `basename`이 이 주소에 맞춰져 있음)
+  - 주소 직접 접속·새로고침: 배포할 때 페이지 주소마다 HTML 파일(`lineup.html` 등, 상품 상세는 `products.js`의 id로 자동 생성)을 만들어 200으로 응답합니다. 목록에 없는 주소는 `404.html`(앱과 같은 내용)로 앱 화면을 보여 줍니다. 새 페이지 주소를 추가하면 `deploy.yml`의 페이지 목록에도 넣어야 합니다.
 
 ## 9. 아직 정하지 않은 사항
 
