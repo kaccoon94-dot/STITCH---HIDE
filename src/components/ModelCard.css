@@ -1,4 +1,5 @@
 .mc {
+  cursor: pointer; /* 카드 전체가 상세 보기로 이동 */
   position: relative;
   display: flex;
   flex-direction: column;
