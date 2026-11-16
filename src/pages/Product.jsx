@@ -44,7 +44,7 @@ export default function Product() {
 function ProductDetail({ product }) {
   const navigate = useNavigate()
   const { addItem } = useCart()
-  const gallery = IMAGES.detailGallery
+  const gallery = product.gallery
 
   const [mainIndex, setMainIndex] = useState(0)
   const [size, setSize] = useState(product.size)
@@ -115,7 +115,7 @@ function ProductDetail({ product }) {
             <p className="t-body ink-soft">
               {product.detailDesc}
               <br />
-              포지션과 손 크기에 맞는 옵션을 확인해 주세요.
+              {product.detailNote}
             </p>
 
             <div className="pd__options">
@@ -166,6 +166,8 @@ function ProductDetail({ product }) {
                 main={`${formatSize(product.size)} · ${product.usage}`}
                 note="표기 크기는 글러브의 길이 기준입니다."
               />
+              <SpecRow label="웹 형태" main={product.web} note={product.webNote} />
+              <SpecRow label="포구부" main={product.pocket} note={product.pocketNote} />
               <SpecRow label="무게" main={product.weight} note="측정 방식에 따라 차이가 있을 수 있습니다." />
               <SpecRow
                 label="안전·내구성"
