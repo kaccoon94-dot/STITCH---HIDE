@@ -9,7 +9,7 @@ import { formatPrice, optionLabel } from '../data/products.js'
 import './Checkout.css'
 
 const FIELDS = [
-  { name: 'sender', label: '보내는 사람', placeholder: '보내는 분의 이름을 입력해 주세요', autoComplete: 'name' },
+  { name: 'sender', label: '보내는 사람', placeholder: '보내는 분의 이름을 입력해 주세요', autoComplete: 'name', mark: true },
   { name: 'senderPhone', label: '보내는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'tel', inputMode: 'tel', mark: true },
   { name: 'receiver', label: '받는 사람', placeholder: '받는 분의 이름을 입력해 주세요', autoComplete: 'shipping name', mark: true },
   { name: 'phone', label: '받는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'shipping tel', inputMode: 'tel' },
@@ -28,6 +28,7 @@ function phoneError(value) {
 // [임시] 결제 전 입력값 확인 규칙
 function validate(values) {
   const errors = {}
+  if (!values.sender.trim()) errors.sender = '보내는 분의 이름을 입력해 주세요.'
   const senderPhone = phoneError(values.senderPhone)
   if (senderPhone) errors.senderPhone = senderPhone
   if (!values.receiver.trim()) errors.receiver = '받는 분의 이름을 입력해 주세요.'
