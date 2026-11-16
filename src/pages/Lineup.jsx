@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { flushSync } from 'react-dom'
 import { Link } from 'react-router-dom'
 import Button from '../components/Button.jsx'
 import ChoiceChips from '../components/ChoiceChips.jsx'
@@ -6,6 +7,7 @@ import ModelCard from '../components/ModelCard.jsx'
 import SectionHeader from '../components/SectionHeader.jsx'
 import { EYEBROWS, LINEUP_FILTERS } from '../data/options.js'
 import { formatPrice, formatSize, getProduct, PRODUCTS } from '../data/products.js'
+import { Close } from '../components/Icons.jsx'
 import './Lineup.css'
 
 const MAX_COMPARE = 3
@@ -30,6 +32,14 @@ export default function Lineup() {
     }
     // 담은 개수가 바뀌면 n/3 숫자를 짧게 강조
     setPulse((n) => n + 1)
+  }
+
+  // 비교 표에서 바로 빼기: 뺀 뒤 포커스를 옆 모델의 빼기 버튼(없으면 비교 영역)으로 옮깁니다.
+  const removeFromTable = (id, index) => {
+    flushSync(() => toggleCompare(id))
+    const buttons = document.querySelectorAll('.cmp__remove')
+    const next = buttons[Math.min(index, buttons.length - 1)]
+    ;(next ?? document.getElementById('compare'))?.focus()
   }
 
   const countText = `${compareIds.length}/${MAX_COMPARE}`
@@ -93,7 +103,7 @@ export default function Lineup() {
       </section>
 
       {/* P03-S02 모델 비교 */}
-      <section id="compare" className="container section section--last" aria-labelledby="compare-title">
+      <section id="compare" tabIndex={-1} className="container section section--last" aria-labelledby="compare-title">
         <SectionHeader
           eyebrow={EYEBROWS.compare}
           title="관심 있는 글러브를 한눈에 비교하세요"
@@ -122,8 +132,17 @@ export default function Lineup() {
                   <th scope="col" className="cmp__corner">
                     항목
                   </th>
-                  {compared.map((p) => (
-                    <th key={p.id} scope="col">
+                  {compared.map((p, i) => (
+                    <th key={p.id} scope="col" className="cmp__model">
+                      {/* 표를 보면서 바로 비교에서 빼기 */}
+                      <button
+                        type="button"
+                        className="cmp__remove"
+                        aria-label={`${p.name} 비교에서 빼기`}
+                        onClick={() => removeFromTable(p.id, i)}
+                      >
+                        <Close size={18} />
+                      </button>
                       <img src={p.image} alt="" width="200" height="140" />
                       <span className="t-label">{p.name}</span>
                     </th>
