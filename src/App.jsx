@@ -6,8 +6,9 @@ import Lineup from './pages/Lineup.jsx'
 import Product from './pages/Product.jsx'
 import Cart from './pages/Cart.jsx'
 import Checkout from './pages/Checkout.jsx'
+import Login from './pages/Login.jsx'
 
-// P01 / · P02 /recommend · P03 /lineup · P04 /product/:id · P05 /cart · P06 /checkout
+// P01 / · P02 /recommend · P03 /lineup · P04 /product/:id · P05 /cart · P06 /checkout · P07 /login
 export default function App() {
   return (
     <Routes>
@@ -18,6 +19,7 @@ export default function App() {
         <Route path="product/:id" element={<Product />} />
         <Route path="cart" element={<Cart />} />
         <Route path="checkout" element={<Checkout />} />
+        <Route path="login" element={<Login />} />
         <Route path="*" element={<Home />} />
       </Route>
     </Routes>

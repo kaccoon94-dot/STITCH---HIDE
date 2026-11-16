@@ -65,11 +65,10 @@ export default function GNB() {
             <Bag />
             장바구니
           </Link>
-          {/* 로그인: 메뉴 ID·목적지 [미정] — 시안대로 표시만 합니다. */}
-          <button type="button" className="gnb__item gnb__item--button">
+          <Link to="/login" className="gnb__item" onClick={close}>
             <User />
             로그인
-          </button>
+          </Link>
           <button
             type="button"
             className="gnb__item gnb__item--button gnb__mode"
