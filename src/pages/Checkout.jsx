@@ -9,10 +9,10 @@ import { formatPrice, optionLabel } from '../data/products.js'
 import './Checkout.css'
 
 const FIELDS = [
-  { name: 'sender', label: '보내는 사람', placeholder: '보내는 분의 이름을 입력해 주세요', autoComplete: 'name', mark: true },
+  { name: 'sender', label: '보내는 사람', placeholder: '보내는 분의 이름을 입력해 주세요', autoComplete: 'name' },
   { name: 'senderPhone', label: '보내는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'tel', inputMode: 'tel', mark: true },
-  { name: 'receiver', label: '받는 사람', placeholder: '받는 분의 이름을 입력해 주세요', autoComplete: 'shipping name' },
-  { name: 'phone', label: '받는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'shipping tel', inputMode: 'tel', mark: true },
+  { name: 'receiver', label: '받는 사람', placeholder: '받는 분의 이름을 입력해 주세요', autoComplete: 'shipping name', mark: true },
+  { name: 'phone', label: '받는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'shipping tel', inputMode: 'tel' },
   { name: 'zip', label: '우편번호', placeholder: '우편번호 5자리', autoComplete: 'postal-code', inputMode: 'numeric', maxLength: 5, mark: true },
   { name: 'address', label: '주소', placeholder: '도로명 또는 지번 주소를 입력해 주세요', autoComplete: 'address-line1', mark: true },
   { name: 'detail', label: '상세 주소', placeholder: '건물명, 동·호수 등 상세 주소를 입력해 주세요', autoComplete: 'address-line2', mark: true },
@@ -28,11 +28,14 @@ function phoneError(value) {
 // [임시] 결제 전 입력값 확인 규칙
 function validate(values) {
   const errors = {}
-  if (!values.sender.trim()) errors.sender = '보내는 분의 이름을 입력해 주세요.'
   const senderPhone = phoneError(values.senderPhone)
   if (senderPhone) errors.senderPhone = senderPhone
-  const phone = phoneError(values.phone)
-  if (phone) errors.phone = phone
+  if (!values.receiver.trim()) errors.receiver = '받는 분의 이름을 입력해 주세요.'
+  // 받는 사람 연락처는 선택 — 입력했을 때만 자릿수 확인
+  if (values.phone.trim()) {
+    const phone = phoneError(values.phone)
+    if (phone) errors.phone = phone
+  }
   if (!/^\d{5}$/.test(values.zip)) errors.zip = '우편번호 5자리를 숫자로 입력해 주세요.'
   if (!values.address.trim()) errors.address = '주소를 입력해 주세요.'
   if (!values.detail.trim()) errors.detail = '상세 주소를 입력해 주세요.'
