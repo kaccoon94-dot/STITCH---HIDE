@@ -4,6 +4,29 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>STITCH &amp; HIDE</title>
+    <!-- 배포 후 브라우저에 남은 예전 HTML이 지워진 예전 JS/CSS를 찾다 404가 나면 한 번만 새로고침해 새 버전을 받습니다.
+         새로고침 뒤 30초 안에 또 실패하면 더 새로고침하지 않습니다(무한 반복 방지). -->
+    <script>
+      window.addEventListener(
+        'error',
+        function (e) {
+          var t = e.target
+          if (!t || (t.tagName !== 'SCRIPT' && t.tagName !== 'LINK')) return
+          var url = t.src || t.href || ''
+          if (url.indexOf('/assets/') === -1) return
+          var key = 'sh-asset-reload'
+          try {
+            var last = Number(sessionStorage.getItem(key)) || 0
+            if (Date.now() - last < 30000) return
+            sessionStorage.setItem(key, String(Date.now()))
+          } catch (x) {
+            return
+          }
+          location.reload()
+        },
+        true,
+      )
+    </script>
     <!-- 파비콘: 화면 모드에 따라 -light 파일로 바뀝니다 (data-mode-icon, src/hooks/useColorMode.js) -->
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" data-mode-icon />
     <link rel="icon" href="/favicon-32.png" type="image/png" sizes="32x32" data-mode-icon />
