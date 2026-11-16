@@ -9,20 +9,30 @@ import { formatPrice, optionLabel } from '../data/products.js'
 import './Checkout.css'
 
 const FIELDS = [
-  { name: 'receiver', label: '받는 사람', placeholder: '받는 분의 이름을 입력해 주세요', autoComplete: 'name' },
-  { name: 'phone', label: '연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'tel', inputMode: 'tel' },
-  { name: 'zip', label: '우편번호', placeholder: '우편번호 5자리', autoComplete: 'postal-code', inputMode: 'numeric', maxLength: 5 },
-  { name: 'address', label: '주소', placeholder: '도로명 또는 지번 주소를 입력해 주세요', autoComplete: 'address-line1' },
-  { name: 'detail', label: '상세 주소', placeholder: '건물명, 동·호수 등 상세 주소를 입력해 주세요', autoComplete: 'address-line2' },
+  { name: 'sender', label: '보내는 사람', placeholder: '보내는 분의 이름을 입력해 주세요', autoComplete: 'name', mark: true },
+  { name: 'senderPhone', label: '보내는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'tel', inputMode: 'tel', mark: true },
+  { name: 'receiver', label: '받는 사람', placeholder: '받는 분의 이름을 입력해 주세요', autoComplete: 'shipping name' },
+  { name: 'phone', label: '받는 사람 연락처', placeholder: '연락 가능한 휴대전화 번호를 입력해 주세요', autoComplete: 'shipping tel', inputMode: 'tel', mark: true },
+  { name: 'zip', label: '우편번호', placeholder: '우편번호 5자리', autoComplete: 'postal-code', inputMode: 'numeric', maxLength: 5, mark: true },
+  { name: 'address', label: '주소', placeholder: '도로명 또는 지번 주소를 입력해 주세요', autoComplete: 'address-line1', mark: true },
+  { name: 'detail', label: '상세 주소', placeholder: '건물명, 동·호수 등 상세 주소를 입력해 주세요', autoComplete: 'address-line2', mark: true },
 ]
+
+// 휴대전화 번호 확인 — 문제가 없으면 undefined
+function phoneError(value) {
+  const digits = value.replace(/\D/g, '')
+  if (!digits) return '연락처를 입력해 주세요.'
+  if (digits.length < 10 || digits.length > 11) return '휴대전화 번호 10~11자리를 확인해 주세요.'
+}
 
 // [임시] 결제 전 입력값 확인 규칙
 function validate(values) {
   const errors = {}
-  if (!values.receiver.trim()) errors.receiver = '받는 분의 이름을 입력해 주세요.'
-  const digits = values.phone.replace(/\D/g, '')
-  if (!digits) errors.phone = '연락처를 입력해 주세요.'
-  else if (digits.length < 10 || digits.length > 11) errors.phone = '휴대전화 번호 10~11자리를 확인해 주세요.'
+  if (!values.sender.trim()) errors.sender = '보내는 분의 이름을 입력해 주세요.'
+  const senderPhone = phoneError(values.senderPhone)
+  if (senderPhone) errors.senderPhone = senderPhone
+  const phone = phoneError(values.phone)
+  if (phone) errors.phone = phone
   if (!/^\d{5}$/.test(values.zip)) errors.zip = '우편번호 5자리를 숫자로 입력해 주세요.'
   if (!values.address.trim()) errors.address = '주소를 입력해 주세요.'
   if (!values.detail.trim()) errors.detail = '상세 주소를 입력해 주세요.'
@@ -32,7 +42,7 @@ function validate(values) {
 // P06 결제 — 결제(S01~S03)와 주문 완료(S04)는 같은 주소 안에서 화면만 바꿉니다. 실제 결제는 없습니다.
 export default function Checkout() {
   const cart = useCart()
-  const [values, setValues] = useState({ receiver: '', phone: '', zip: '', address: '', detail: '', request: '' })
+  const [values, setValues] = useState({ sender: '', senderPhone: '', receiver: '', phone: '', zip: '', address: '', detail: '', request: '' })
   const [errors, setErrors] = useState({})
   const [payment, setPayment] = useState('신용카드')
   const [order, setOrder] = useState(null)
@@ -80,6 +90,12 @@ export default function Checkout() {
                 <div key={f.name} className={`field co__field co__field--${f.name}`}>
                   <label htmlFor={`co-${f.name}`} className="field__label">
                     {f.label}
+                    {f.mark && (
+                      <>
+                        <span className="field__req" aria-hidden="true">*</span>
+                        <span className="visually-hidden">(필수)</span>
+                      </>
+                    )}
                   </label>
                   <input
                     id={`co-${f.name}`}
@@ -92,7 +108,7 @@ export default function Checkout() {
                     autoComplete={f.autoComplete}
                     inputMode={f.inputMode}
                     maxLength={f.maxLength}
-                    required
+                    required={f.mark}
                     aria-invalid={errors[f.name] ? 'true' : undefined}
                     aria-describedby={errors[f.name] ? `co-${f.name}-err` : undefined}
                   />
