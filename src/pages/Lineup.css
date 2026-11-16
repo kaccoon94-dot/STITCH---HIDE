@@ -201,3 +201,50 @@
     padding-bottom: 160px;
   }
 }
+
+/* [모바일 #24] 터치 기기의 좁은 화면(≤768px): 가로 스크롤 없이 비교 표를 한 화면에 맞춥니다. */
+@media (hover: none) and (pointer: coarse) and (max-width: 768px) {
+  .cmp {
+    table-layout: fixed;
+    font-size: 13px;
+    line-height: 1.5;
+  }
+
+  .cmp th,
+  .cmp td {
+    padding: var(--space-8);
+    word-break: keep-all;
+    overflow-wrap: anywhere;
+  }
+
+  .cmp thead th {
+    min-width: 0;
+    padding-top: var(--space-12);
+  }
+
+  .cmp thead th.cmp__corner {
+    width: 64px;
+    font-size: 13px;
+  }
+
+  .cmp tbody th {
+    white-space: normal;
+  }
+
+  .cmp thead th img {
+    width: 100%;
+    margin-bottom: var(--space-8);
+  }
+
+  .cmp thead th .t-label {
+    font-size: 13px;
+  }
+
+  .cmp__btn {
+    width: 100%;
+    padding: 0 4px;
+    font-size: 13px;
+    white-space: normal;
+    text-align: center;
+  }
+}

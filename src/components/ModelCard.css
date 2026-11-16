@@ -170,3 +170,10 @@
     transform: none;
   }
 }
+
+/* [모바일 · 모델 카드] 터치 기기(모바일·태블릿): 카드 hover 테두리를 없앱니다. */
+@media (hover: none) and (pointer: coarse) {
+  .mc:hover {
+    border-color: var(--line);
+  }
+}

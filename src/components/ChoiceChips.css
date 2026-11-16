@@ -68,3 +68,10 @@
     height: var(--control-sm);
   }
 }
+
+/* [모바일 #13] 터치 기기(모바일·태블릿): 마우스 올림 테두리 강조를 없앱니다. 선택된 칩은 그대로. */
+@media (hover: none) and (pointer: coarse) {
+  .chip:hover:not([aria-pressed='true']) {
+    border-color: var(--line-strong);
+  }
+}

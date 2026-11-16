@@ -11,6 +11,21 @@ export default function useReveal() {
       el.classList.add('is-visible')
       return
     }
+    // [모바일 #9] 터치 기기(모바일·태블릿): 한 칸이라도 보이면 모든 칸을 한 번에 나타나게 합니다.
+    if (window.matchMedia('(hover: none) and (pointer: coarse)').matches) {
+      const cells = el.querySelectorAll('.reveal')
+      const ioAll = new IntersectionObserver(
+        (entries) => {
+          if (entries.some((entry) => entry.isIntersecting)) {
+            cells.forEach((n) => n.classList.add('is-visible'))
+            ioAll.disconnect()
+          }
+        },
+        { threshold: 0.15 },
+      )
+      cells.forEach((n) => ioAll.observe(n))
+      return () => ioAll.disconnect()
+    }
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {

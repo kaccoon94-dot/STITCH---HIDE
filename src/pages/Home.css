@@ -172,6 +172,14 @@
   }
 }
 
+/* [모바일 #9] 터치 기기(모바일·태블릿): 칸마다 다른 지연 없이 한 번에 나타납니다 (useReveal.js와 함께). */
+@media (hover: none) and (pointer: coarse) {
+  .story__grid .reveal:nth-child(2),
+  .story__grid .reveal:nth-child(4) {
+    transition-delay: 0s;
+  }
+}
+
 @media (max-width: 1024px) {
   .story {
     padding: var(--space-128) var(--space-24);

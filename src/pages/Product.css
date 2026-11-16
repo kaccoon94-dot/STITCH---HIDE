@@ -269,3 +269,10 @@
     height: auto;
   }
 }
+
+/* [모바일 · 썸네일] 터치 기기(모바일·태블릿): 썸네일 hover 테두리를 없앱니다. */
+@media (hover: none) and (pointer: coarse) {
+  .pd__thumbs button:hover {
+    border-color: var(--line);
+  }
+}

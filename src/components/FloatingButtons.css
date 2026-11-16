@@ -56,3 +56,17 @@
     height: 56px;
   }
 }
+
+/* [모바일 #10] 터치 기기(모바일·태블릿): TOP 버튼을 숨깁니다. */
+@media (hover: none) and (pointer: coarse) {
+  .flt__btn--top {
+    display: none;
+  }
+}
+
+/* [모바일 #11] 터치 기기(모바일·태블릿): 플로팅 버튼 hover 이동을 없앱니다. */
+@media (hover: none) and (pointer: coarse) {
+  .flt__btn:hover {
+    transform: none;
+  }
+}
