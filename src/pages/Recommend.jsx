@@ -32,6 +32,8 @@ export default function Recommend() {
     : { who, position, hand, throwHand }
   const result = recommend(input)
   const handText = `${Number(input.hand).toFixed(1)} cm`
+  // 아이 나이는 추천에 쓰지 않고 참고용으로 결과에만 보여 줍니다 (사용자 답변 2026-11-17).
+  const basisText = isChild && childAge ? `${result.basis} ${childAge}` : result.basis
 
   const scrollTop = () => {
     const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches
@@ -151,7 +153,7 @@ export default function Recommend() {
               titleId="s02-title"
             />
             <ul className="rec__summary" aria-label="입력 요약">
-              <li>{result.basis}</li>
+              <li>{basisText}</li>
               <li>{handText}</li>
               <li>{result.throwHand} 투구</li>
             </ul>
@@ -175,7 +177,7 @@ export default function Recommend() {
                 </div>
                 <span className="dash" aria-hidden="true" />
                 <p className="t-body-sm ink-soft">
-                  {result.basis} · 손 길이 {handText} · {result.throwHand} 투구 기준의 추천 예시입니다.
+                  {basisText} · 손 길이 {handText} · {result.throwHand} 투구 기준의 추천 예시입니다.
                   <br />
                   {result.product.resultDesc}
                   <br />

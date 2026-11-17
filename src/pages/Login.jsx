@@ -9,7 +9,7 @@ const FIELDS = [
   { name: 'password', label: '비밀번호', type: 'password', placeholder: '비밀번호를 입력해 주세요', autoComplete: 'current-password' },
 ]
 
-// [임시] 로그인 전 입력값 확인 규칙
+// 로그인 전 입력값 확인 규칙
 function validate(values) {
   const errors = {}
   if (!values.email.trim()) errors.email = '이메일을 입력해 주세요.'

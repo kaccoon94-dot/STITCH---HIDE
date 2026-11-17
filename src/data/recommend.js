@@ -1,10 +1,10 @@
-// [임시] 추천 규칙표 — 내용은 PROJECT_CONTEXT.md에서 [미정]이라 임시로 정했습니다.
+// 추천 규칙표 (확정: 사용자 답변 2026-11-17)
 //
-// 나:   포지션 → 모델 (시안과 같음)
-//       손 길이 17.5 cm 미만 → 기본 크기 -0.5인치
-//       17.5 ~ 20.0 cm       → 기본 크기
-//       20.0 cm 초과          → 기본 크기 +0.5인치
-// 아이: 주니어 핏 글러브
+// 성인: 포지션 → 모델 (시안과 같음)
+//       손 길이 18.5 cm 미만 → 기본 크기 -0.5인치
+//       18.5 ~ 20.5 cm       → 기본 크기
+//       20.5 cm 초과          → 기본 크기 +0.5인치
+// 아이: 주니어 핏 글러브 (아이 나이는 참고용으로 결과 설명에만 표시)
 //       손 길이 13.0 cm 미만 → 10인치
 //       13.0 ~ 15.5 cm       → 10.5인치
 //       15.5 cm 초과          → 11인치
@@ -30,8 +30,8 @@ export function recommend({ who, position, hand, throwHand }) {
     if (hand < 13) size = small
     else if (hand > 15.5) size = large
   } else {
-    if (hand < 17.5) size = small
-    else if (hand > 20) size = large
+    if (hand < 18.5) size = small
+    else if (hand > 20.5) size = large
   }
 
   return {
