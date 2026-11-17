@@ -65,7 +65,7 @@ export default function GNB() {
             <Bag />
             장바구니
           </Link>
-          <Link to="/login" className="gnb__item" onClick={close}>
+          <Link to="/login" className="gnb__item" data-id="M-06" onClick={close}>
             <User />
             로그인
           </Link>

@@ -1,4 +1,4 @@
-// 선택지 목록. [임시] 표시는 문서에 없어 임시로 채운 값입니다.
+// 선택지 목록 (문서에 없던 값은 사용자 답변 2026-11-17로 확정)
 
 export const WHO_OPTIONS = [
   { label: '성인', value: 'me' },
@@ -9,14 +9,14 @@ export const POSITION_OPTIONS = ['투수', '내야수', '외야수', '포수', '
 
 export const THROW_OPTIONS = ['오른손', '왼손']
 
-// [임시] 아이 나이 선택지
+// 아이 나이 선택지 (추천에는 쓰지 않고 결과에 참고로 표시)
 export const CHILD_AGE_OPTIONS = ['5세', '6세', '7세', '8세', '9세', '10세', '11세', '12세', '13세']
 
 export const LINEUP_FILTERS = ['전체', '투수', '내야수', '외야수', '포수·1루수']
 
 export const PAYMENT_OPTIONS = ['신용카드', '계좌이체', '간편결제']
 
-// [임시] 배송 요청사항 선택지
+// 배송 요청사항 선택지
 export const DELIVERY_REQUEST_OPTIONS = [
   '문 앞에 놓아 주세요',
   '경비실에 맡겨 주세요',
@@ -24,7 +24,7 @@ export const DELIVERY_REQUEST_OPTIONS = [
   '배송 전에 연락 주세요',
 ]
 
-// [임시] P03~P06 섹션 머리 라벨 (P02는 시안의 STEP 라벨)
+// P03~P06 섹션 머리 라벨 (P02는 시안의 STEP 라벨)
 export const EYEBROWS = {
   recommendInput: 'STEP 1 · 조건 선택',
   recommendResult: 'STEP 2 · 추천 결과',
@@ -38,7 +38,7 @@ export const EYEBROWS = {
   orderSummary: 'STEP 3 · 주문 요약',
 }
 
-// FTR 링크: 목적지 [미정] — 새 페이지를 만들지 않기로 해서 이동 없이 둡니다.
+// FTR 약관·안내: 이동할 페이지가 없어 링크 없이 글자만 표시합니다 (사용자 답변 2026-11-17).
 // 한 줄로 표시 (사용자 요청 2026-11-13, 와이어프레임은 2줄)
 export const FOOTER_LINKS = [
   { label: '이용약관' },

@@ -25,7 +25,7 @@ function phoneError(value) {
   if (digits.length < 10 || digits.length > 11) return '휴대전화 번호 10~11자리를 확인해 주세요.'
 }
 
-// [임시] 결제 전 입력값 확인 규칙
+// 결제 전 입력값 확인 규칙
 function validate(values) {
   const errors = {}
   if (!values.sender.trim()) errors.sender = '보내는 분의 이름을 입력해 주세요.'
